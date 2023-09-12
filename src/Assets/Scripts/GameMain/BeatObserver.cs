@@ -9,7 +9,9 @@ namespace GameMain
     public class BeatObserver : SingletonMonoBehaviour<BeatObserver>
     {
         [SerializeField] private int bpm;
-        [SerializeField] private double judgeOffset;
+        [SerializeField] private double judgeOffsetBefore;
+        [SerializeField] private double judgeOffsetAfter;
+        [SerializeField] private double fixOffset;
         [SerializeField] private float scale;
         [SerializeField] private float scaleDuration;
 
@@ -23,18 +25,19 @@ namespace GameMain
         private void Awake()
         {
             beatTime = 60.0 / bpm;
+            Debug.Log(beatTime);
         }
 
         private void Update()
         {
             currentTime += Time.deltaTime;
 
-            if (!IsJudging && currentTime >= beatTime - judgeOffset)
+            if (!IsJudging && currentTime >= beatTime - judgeOffsetBefore + fixOffset)
             {
                 Judge().Forget();
             }
 
-            if (currentTime >= beatTime)
+            if (currentTime >= beatTime + fixOffset)
             {
                 DOTween.To(() => ScaleRate, x => ScaleRate = x, scale, scaleDuration).SetLoops(2, LoopType.Yoyo).Play();
                 currentTime -= beatTime;
@@ -46,7 +49,7 @@ namespace GameMain
         {
             IsJudging = true;
 
-            await UniTask.Delay(TimeSpan.FromSeconds(judgeOffset * 2.0));
+            await UniTask.Delay(TimeSpan.FromSeconds(judgeOffsetBefore + judgeOffsetAfter));
 
             IsJudging = false;
         }
