@@ -26,5 +26,6 @@ namespace Player
                 bullet.Shoot();
             };
         }
+
     }
 }
