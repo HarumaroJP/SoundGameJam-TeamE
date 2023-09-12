@@ -21,6 +21,8 @@ namespace Player
 
         private int currentMoveCount;
 
+        public bool IsMoving { get; private set; }
+
         private void Start()
         {
             DOTween.defaultAutoPlay = AutoPlay.None;
@@ -30,25 +32,25 @@ namespace Player
 
             moveUpEvent.Started += ctx =>
             {
-                if (currentMoveCount >= moveCount)
+                if (IsMoving || currentMoveCount >= moveCount)
                     return;
 
-                moveUpTween?.Complete();
+                IsMoving = true;
 
                 moveUpTween = transform.DOMoveY(transform.position.y + moveInterval, smoothDuration);
-                moveUpTween.Play();
+                moveUpTween.Play().OnComplete(() => IsMoving = false);
                 currentMoveCount++;
             };
 
             moveDownEvent.Started += ctx =>
             {
-                if (currentMoveCount <= 0)
+                if (IsMoving || currentMoveCount <= 0)
                     return;
 
-                moveDownTween?.Complete();
+                IsMoving = true;
 
                 moveDownTween = transform.DOMoveY(transform.position.y - moveInterval, smoothDuration).Play();
-                moveDownTween.Play();
+                moveDownTween.Play().OnComplete(() => IsMoving = false);
                 currentMoveCount--;
             };
         }
