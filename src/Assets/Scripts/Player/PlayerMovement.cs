@@ -30,7 +30,7 @@ namespace Player
 
             moveUpEvent.Started += ctx =>
             {
-                if (currentMoveCount >= 4)
+                if (currentMoveCount >= moveCount)
                     return;
 
                 moveUpTween?.Complete();

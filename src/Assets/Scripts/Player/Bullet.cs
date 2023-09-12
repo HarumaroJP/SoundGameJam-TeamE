@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Core.Input;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace Player
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Bullet : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Rigidbody2D rig2D;
+        [SerializeField] private float power;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+        public void Shoot()
+        {
+
+        }
     }
 }
