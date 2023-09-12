@@ -44,7 +44,6 @@ ExportedObj/
 !Editor.csproj
 !Module.Player.csproj
 *.sln
-!src.sln
 *.slnf
 *.suo
 *.tmp
