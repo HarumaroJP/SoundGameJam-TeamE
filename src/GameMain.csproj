@@ -46,6 +46,7 @@
      <Compile Include="Assets\Scripts\GameMain\BeatObserver.cs" />
      <Compile Include="Assets\Scripts\GameMain\JudgeType.cs" />
      <Compile Include="Assets\Scripts\GameMain\BeatReferee.cs" />
+     <Compile Include="Assets\Scripts\GameMain\ScoreCounter.cs" />
      <Folder Include="Assets\Scripts\GameMain" />
      <None Include="Assets\Scripts\GameMain\GameMain.asmdef" />
      <Reference Include="UnityEngine">
@@ -726,6 +727,10 @@
     <ProjectReference Include="Unity.InputSystem.csproj">
       <Project>{4e57be16-99a5-d0e9-6d23-a67bf0e20903}</Project>
       <Name>Unity.InputSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.TextMeshPro.csproj">
+      <Project>{1cc858fa-215b-6022-8008-3183c9d4d3c9}</Project>
+      <Name>Unity.TextMeshPro</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

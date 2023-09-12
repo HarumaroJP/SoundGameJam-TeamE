@@ -22,6 +22,8 @@ namespace GameMain
         public long BeatCount { get; private set; }
         public float ScaleRate { get; private set; } = 1f;
 
+        public event Action OnBeat;
+
         private void Awake()
         {
             beatTime = 60.0 / bpm;
@@ -42,6 +44,7 @@ namespace GameMain
                 DOTween.To(() => ScaleRate, x => ScaleRate = x, scale, scaleDuration).SetLoops(2, LoopType.Yoyo).Play();
                 currentTime -= beatTime;
                 BeatCount++;
+                OnBeat?.Invoke();
             }
         }
 
