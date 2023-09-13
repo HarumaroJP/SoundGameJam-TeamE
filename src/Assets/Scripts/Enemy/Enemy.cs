@@ -1,12 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Player;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float moveSpace;
     [SerializeField] private int Player_score;
+    [SerializeField] private int type;
 
     public int Length;
     public event Action OnDestroyed;
@@ -24,6 +27,14 @@ public class Enemy : MonoBehaviour
         {
             //当たったときの処理を書く
             //スコアを加算する
+
+            Bullet bullet = other.GetComponent<Bullet>();
+
+            if (type != bullet.Type)
+            {
+                bullet.Error();
+                return;
+            }
 
             counter.AddScore(Player_score);
 

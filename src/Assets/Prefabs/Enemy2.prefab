@@ -159,8 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3006e19dad8d6294a8e6f33f1eb35ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
   moveSpace: 1.756
   Player_score: 200
+  type: 2
   Length: 5
 --- !u!61 &2591491262846745074
 BoxCollider2D:
