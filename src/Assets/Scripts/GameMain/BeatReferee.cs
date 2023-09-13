@@ -6,8 +6,8 @@ namespace GameMain
 {
     public class BeatReferee
     {
-        private double judgeOffsetBefore = 0.25;
-        private double judgeOffsetAfter = 0.25;
+        private double judgeOffsetBefore = 0.255;
+        private double judgeOffsetAfter = 0.255;
 
         private InputEvent tapEvent;
         private InputEvent pressEvent;
