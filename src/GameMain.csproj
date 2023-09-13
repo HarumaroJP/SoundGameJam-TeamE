@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\GameMain\JudgeType.cs" />
      <Compile Include="Assets\Scripts\GameMain\ScoreCounter.cs" />
      <Compile Include="Assets\Scripts\GameMain\BeatReferee.cs" />
+     <Compile Include="Assets\Scripts\GameMain\BeatScaler.cs" />
      <Folder Include="Assets\Scripts\GameMain" />
      <None Include="Assets\Scripts\GameMain\GameMain.asmdef" />
      <Reference Include="UnityEngine">

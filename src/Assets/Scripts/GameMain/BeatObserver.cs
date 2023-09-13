@@ -9,7 +9,7 @@ namespace GameMain
     public class BeatObserver : SingletonMonoBehaviour<BeatObserver>
     {
         [SerializeField] private int bpm;
- 
+
         [SerializeField] private double fixOffset;
         [SerializeField] private float scale;
         [SerializeField] private float scaleDuration;
@@ -18,7 +18,6 @@ namespace GameMain
         private double accumulateTime;
         private double startTime;
 
-        public bool IsJudging { get; private set; }
         public long BeatCount { get; private set; }
         public float ScaleRate { get; private set; } = 1f;
 

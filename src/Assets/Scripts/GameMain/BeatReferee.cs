@@ -25,13 +25,17 @@ namespace GameMain
             shootEvent.Canceled += _ => OnRelease();
         }
 
+        private void OnTap()
+        {
+            if (GetJudgement())
+            {
+                OnJudged?.Invoke(JudgeType.Tap);
+            }
+        }
+
         private void OnPress()
         {
-            double dspTime = AudioSettings.dspTime;
-            double nextTime = beatObserver.GetNextTime();
-            bool isJudging = dspTime >= nextTime - judgeOffsetBefore && dspTime <= nextTime + judgeOffsetAfter;
-
-            if (isJudging)
+            if (GetJudgement())
             {
                 beatCount = beatObserver.BeatCount;
             }
@@ -43,13 +47,7 @@ namespace GameMain
 
         private void OnRelease()
         {
-            double dspTime = AudioSettings.dspTime;
-            double nextTime = beatObserver.GetNextTime();
-            bool isJudging = dspTime >= nextTime - judgeOffsetBefore && dspTime <= nextTime + judgeOffsetAfter;
-
-            Debug.Log(nextTime - dspTime);
-
-            if (isJudging)
+            if (GetJudgement())
             {
                 if (beatCount == beatObserver.BeatCount)
                 {
@@ -64,6 +62,13 @@ namespace GameMain
             {
                 OnJudged?.Invoke(JudgeType.Miss);
             }
+        }
+
+        private bool GetJudgement()
+        {
+            double dspTime = AudioSettings.dspTime;
+            double nextTime = beatObserver.GetNextTime();
+            return dspTime >= nextTime - judgeOffsetBefore && dspTime <= nextTime + judgeOffsetAfter;
         }
     }
 }
