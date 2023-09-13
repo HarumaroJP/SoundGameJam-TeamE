@@ -183,6 +183,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -540.28
       objectReference: {fileID: 0}
+    - target: {fileID: 6365570711384011902, guid: c44ba35d573891d4482b991e969ad41a, type: 3}
+      propertyPath: gameOverPlayerChanger
+      value: 
+      objectReference: {fileID: 266010514}
     - target: {fileID: 6365570711573257912, guid: c44ba35d573891d4482b991e969ad41a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -395,6 +399,7 @@ GameObject:
   - component: {fileID: 266010512}
   - component: {fileID: 266010513}
   - component: {fileID: 266010514}
+  - component: {fileID: 266010515}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -563,8 +568,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5950a241ea1eeaf4495af534e02c39bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverSprite: {fileID: 0}
-  spriteAnimation: {fileID: 0}
+  gameOverSprite: {fileID: 21300000, guid: 564f9a94b085314499e19e1f84700ace, type: 3}
+  spriteAnimation: {fileID: 266010515}
+--- !u!114 &266010515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266010508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aff64cc708a4d57a541e129638fc761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteImage: {fileID: 1457866374}
+  spriteTextures:
+  - {fileID: 21300000, guid: 564f9a94b085314499e19e1f84700ace, type: 3}
+  - {fileID: 21300000, guid: a16837f3cef4a2c4eac4792c09a6dd8b, type: 3}
+  animationFrameSeconds: 0.1
+  playOnStart: 0
+  loop: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1236,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1457866373}
   - component: {fileID: 1457866374}
-  - component: {fileID: 1457866375}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -1287,23 +1310,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1457866375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457866372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9aff64cc708a4d57a541e129638fc761, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteImage: {fileID: 1457866374}
-  spriteTextures: []
-  animationFrameSeconds: 0
-  debug: 0
-  loop: 0
 --- !u!1001 &1921644183
 PrefabInstance:
   m_ObjectHideFlags: 0

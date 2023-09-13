@@ -111,7 +111,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 29f2e1a31885808478de6c9ae59aec2d, type: 3}
   - {fileID: 21300000, guid: f931d51b7d5b42f4eac801061b68fc63, type: 3}
   animationFrameSeconds: 0.1
-  debug: 0
+  playOnStart: 1
   loop: 1
 --- !u!1 &709226197395975755
 GameObject:
