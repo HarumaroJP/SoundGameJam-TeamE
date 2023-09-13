@@ -473,6 +473,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4227d9246f1d30b4e983c6e47719a9c7, type: 3}
   audioSource: {fileID: 266010513}
   playerMovement: {fileID: 266010511}
+  easeDistance: -0.5
+  easeDuration: 0.08
 --- !u!82 &266010513
 AudioSource:
   m_ObjectHideFlags: 0
