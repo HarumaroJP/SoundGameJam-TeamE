@@ -13,6 +13,14 @@ namespace Core.Input
         [SerializeField] private InputActionAsset inputActionAsset;
         private readonly List<InputEvent> inputEvents = new List<InputEvent>();
 
+        protected override void Awake()
+        {
+            if (this != Instance)
+            {
+                OnDestroy();
+            }
+        }
+
         private void Start()
         {
             inputActionAsset.Enable();
