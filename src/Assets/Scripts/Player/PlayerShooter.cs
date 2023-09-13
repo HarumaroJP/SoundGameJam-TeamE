@@ -15,7 +15,7 @@ namespace Player
 
         private void Start()
         {
-            shootEvent = InputActionProvider.Instance.CreateEvent(ActionGuid.Player.Shoot);
+            shootEvent = InputActionProvider.Instance.CreateEvent(ActionGuid.Player.ShootTap);
 
             shootEvent.Started += ctx =>
             {
@@ -26,6 +26,5 @@ namespace Player
                 bullet.Shoot();
             };
         }
-
     }
 }

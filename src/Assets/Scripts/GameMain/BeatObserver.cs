@@ -32,7 +32,7 @@ namespace GameMain
         {
             double currentTime = AudioSettings.dspTime;
 
-            if (currentTime >= GetNextTime() + fixOffset)
+            if (currentTime >= GetNextTime() - fixOffset)
             {
                 DOTween.To(() => ScaleRate, x => ScaleRate = x, scale, scaleDuration).SetLoops(2, LoopType.Yoyo).Play();
                 accumulateTime += 60.0 / bpm;
@@ -44,7 +44,7 @@ namespace GameMain
         public double GetNextTime()
         {
             double bpmTime = 60.0 / bpm;
-            return startTime + accumulateTime + bpmTime;
+            return startTime + accumulateTime + bpmTime + fixOffset;
         }
     }
 }
