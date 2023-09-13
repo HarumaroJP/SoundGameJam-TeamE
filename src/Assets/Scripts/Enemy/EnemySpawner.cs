@@ -37,8 +37,11 @@ namespace EnemySystem
             GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
             Vector3 spawnPoint = transform.position + new Vector3(0f, spawnInterval * Random.Range(0, prefabs.Length + 1), 0f);
             GameObject enemyObj = Instantiate(prefab, spawnPoint, Quaternion.identity);
+            Enemy enemy = enemyObj.GetComponent<Enemy>();
 
-            enemies.Add(enemyObj.GetComponent<Enemy>());
+            enemies.Add(enemy);
+
+            enemy.OnDestroyed += () => enemies.Remove(enemy);
         }
     }
 }
