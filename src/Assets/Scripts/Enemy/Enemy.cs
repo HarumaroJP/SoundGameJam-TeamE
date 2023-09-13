@@ -14,6 +14,10 @@ public class Enemy : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        //当たったときの処理を書く
+        if (other.CompareTag("Enemy"))
+        {
+            //当たったときの処理を書く
+            //スコアを加算する
+        }
     }
 }
