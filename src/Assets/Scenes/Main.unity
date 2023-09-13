@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerShooter: {fileID: 266010512}
-  playerRenderer: {fileID: 0}
+  playerRenderer: {fileID: 1457866374}
   normalSprite: {fileID: 21300000, guid: 226155fc10e66fd4d87f54a14bab9c5a, type: 3}
   missSprite: {fileID: 21300000, guid: e54c12db9ae8096448d5e06d0ba18d37, type: 3}
 --- !u!82 &1142980442
