@@ -14,7 +14,7 @@ namespace GameMain
         private long beatCount;
         private bool isPressing;
 
-        public event Action<JudgeType> OnJudged;
+        public event Action<JudgeType, long> OnJudged;
         private BeatObserver beatObserver;
 
         public void Start()
@@ -32,11 +32,11 @@ namespace GameMain
         {
             if (GetJudgement())
             {
-                OnJudged?.Invoke(JudgeType.Tap);
+                OnJudged?.Invoke(JudgeType.Tap, 0);
             }
             else
             {
-                OnJudged?.Invoke(JudgeType.Miss);
+                OnJudged?.Invoke(JudgeType.Miss, 0);
             }
         }
 
@@ -49,7 +49,7 @@ namespace GameMain
             }
             else
             {
-                OnJudged?.Invoke(JudgeType.Miss);
+                OnJudged?.Invoke(JudgeType.Miss, 0);
             }
         }
 
@@ -62,12 +62,12 @@ namespace GameMain
             {
                 if (beatCount != beatObserver.BeatCount)
                 {
-                    OnJudged?.Invoke(JudgeType.Press);
+                    OnJudged?.Invoke(JudgeType.Press, beatObserver.BeatCount - beatCount);
                 }
             }
             else
             {
-                OnJudged?.Invoke(JudgeType.Miss);
+                OnJudged?.Invoke(JudgeType.Miss, 0);
             }
 
             isPressing = false;

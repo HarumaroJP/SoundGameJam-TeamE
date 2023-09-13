@@ -8,23 +8,18 @@ namespace Player
 {
     public class PlayerShooter : MonoBehaviour
     {
-        [SerializeField] private GameObject prefab;
+        [SerializeField] private GameObject[] bullets;
         [SerializeField] private PlayerMovement playerMovement;
 
         private InputEvent shootEvent;
 
-        private void Start()
+        public void Shoot(int index)
         {
-            shootEvent = InputActionProvider.Instance.CreateEvent(ActionGuid.Player.ShootTap);
+            if (playerMovement.IsMoving)
+                return;
 
-            shootEvent.Started += ctx =>
-            {
-                if (playerMovement.IsMoving)
-                    return;
-
-                Bullet bullet = Instantiate(prefab, transform.position, Quaternion.identity).GetComponent<Bullet>();
-                bullet.Shoot();
-            };
+            Bullet bullet = Instantiate(bullets[index], transform.position, Quaternion.identity).GetComponent<Bullet>();
+            bullet.Shoot();
         }
     }
 }

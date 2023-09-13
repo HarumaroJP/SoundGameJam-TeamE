@@ -735,6 +735,10 @@
       <Project>{daf5ad3f-bd5b-7a4e-baca-0e006f668f89}</Project>
       <Name>Core.Input</Name>
     </ProjectReference>
+    <ProjectReference Include="Player.csproj">
+      <Project>{17e921ab-c3b2-7353-5c44-6a97174cc4ef}</Project>
+      <Name>Player</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
