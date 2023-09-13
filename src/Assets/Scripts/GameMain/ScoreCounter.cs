@@ -7,7 +7,7 @@ public class ScoreCounter : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI scoreText;
 
-    int score_sum = 0;
+    public int score_sum = 0;
     public void AddScore(int score) {
 
         score_sum += score;
