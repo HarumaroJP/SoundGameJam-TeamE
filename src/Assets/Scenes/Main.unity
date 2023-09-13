@@ -175,6 +175,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1159892737}
     m_Modifications:
+    - target: {fileID: 6365570710307427190, guid: c44ba35d573891d4482b991e969ad41a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6365570711347730814, guid: c44ba35d573891d4482b991e969ad41a, type: 3}
+      propertyPath: m_text
+      value: 'Score: 00000'
+      objectReference: {fileID: 0}
     - target: {fileID: 6365570711384011900, guid: c44ba35d573891d4482b991e969ad41a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -960.07
@@ -183,6 +191,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -540.28
       objectReference: {fileID: 0}
+    - target: {fileID: 6365570711384011902, guid: c44ba35d573891d4482b991e969ad41a, type: 3}
+      propertyPath: scoreCounter
+      value: 
+      objectReference: {fileID: 261910143}
     - target: {fileID: 6365570711384011902, guid: c44ba35d573891d4482b991e969ad41a, type: 3}
       propertyPath: gameOverPlayerChanger
       value: 
@@ -386,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 261910141}
+  score_sum: 0
 --- !u!1 &266010508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,7 +1454,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071034797}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
