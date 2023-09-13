@@ -56,15 +56,16 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameMain\SpriteAnimation.cs" />
+    <Compile Include="Assets\Scripts\GameMain\BeatScaler.cs" />
     <Compile Include="Assets\Scripts\GameMain\SingletonMonobehaviour.cs" />
     <Compile Include="Assets\Scripts\GameMain\BeatPatternChecker.cs" />
     <Compile Include="Assets\Scripts\GameMain\BeatObserver.cs" />
     <Compile Include="Assets\Scripts\GameMain\JudgeType.cs" />
     <Compile Include="Assets\Scripts\GameMain\ScoreCounter.cs" />
-    <Compile Include="Assets\Scripts\GameMain\BeatReferee.cs" />
-    <Compile Include="Assets\Scripts\GameMain\BeatScaler.cs" />
-    <Compile Include="Assets\Scripts\GameMain\SpriteAnimation.cs" />
     <Compile Include="Assets\Scripts\GameMain\FlashController.cs" />
+    <Compile Include="Assets\Scripts\GameMain\BeatReferee.cs" />
+    <Compile Include="Assets\Scripts\GameMain\ResultController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\GameMain\GameMain.asmdef" />
