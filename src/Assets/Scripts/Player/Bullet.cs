@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core.Input;
+using GameMain;
 using UnityEngine;
 
 namespace Player
 {
     public class Bullet : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private SpriteAnimation spriteAnimation;
         [SerializeField] private Rigidbody2D rig2D;
-        [SerializeField] private Sprite errorSprite;
         [SerializeField] private float power;
         public int Type;
 
@@ -20,7 +20,7 @@ namespace Player
 
         public void Error()
         {
-            spriteRenderer.sprite = errorSprite;
+            spriteAnimation.SpriteAnimeStart();
         }
     }
 }
