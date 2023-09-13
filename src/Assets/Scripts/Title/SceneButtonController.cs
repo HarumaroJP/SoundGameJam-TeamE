@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneButtonController : MonoBehaviour
 {
     // Start is called before the first frame update
-  public void SceneButton(string SceneName)
+    public void SceneButton(string SceneName)
     {
         SceneManager.LoadScene(SceneName);
     }
@@ -17,5 +17,17 @@ public class SceneButtonController : MonoBehaviour
         #else
            Application.Quit();
         #endif
+    }
+    public void CreditsButton(GameObject Credits)
+    {
+        Credits.SetActive(true);
+    }
+    public void URLButton(string URL)
+    {
+        Application.OpenURL(URL);
+    }
+    public void CreditsQuitButton(GameObject Credits)
+    {
+        Credits.SetActive(false);
     }
 }
