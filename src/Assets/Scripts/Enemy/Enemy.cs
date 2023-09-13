@@ -8,11 +8,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpace;
     [SerializeField] private int Player_score;
 
-
     public void Move()
     {
         transform.position += -transform.right * moveSpace;
-
     }
 
     public void OnTriggerEnter2D(Collider2D other)
