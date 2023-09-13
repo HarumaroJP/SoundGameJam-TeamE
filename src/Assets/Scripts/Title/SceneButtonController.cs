@@ -12,11 +12,7 @@ public class SceneButtonController : MonoBehaviour
     }
     public void QuitButton()
     {
-        #if UNITY_EDITOR
-           UnityEditor.EditorApplication.isPlaying = false;
-        #else
            Application.Quit();
-        #endif
     }
     public void CreditsButton(GameObject Credits)
     {
