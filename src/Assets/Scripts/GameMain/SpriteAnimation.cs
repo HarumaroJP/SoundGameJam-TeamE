@@ -18,7 +18,7 @@ namespace GameMain
 
         [SerializeField] float animationFrameSeconds;
 
-        [SerializeField] bool debug;
+        [SerializeField] bool playOnStart;
 
         public bool loop;
 
@@ -26,6 +26,9 @@ namespace GameMain
 
         private void Start()
         {
+            if (!playOnStart)
+                return;
+
             SpriteAnimeStart();
         }
 

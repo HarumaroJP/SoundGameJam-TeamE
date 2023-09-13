@@ -9,6 +9,8 @@ namespace Player
     public class PlayerShooter : MonoBehaviour
     {
         [SerializeField] private GameObject[] bullets;
+        [SerializeField] private AudioClip[] seClips;
+        [SerializeField] private AudioSource audioSource;
         [SerializeField] private PlayerMovement playerMovement;
 
         private InputEvent shootEvent;
@@ -17,6 +19,8 @@ namespace Player
         {
             if (playerMovement.IsMoving)
                 return;
+
+            audioSource.PlayOneShot(seClips[index]);
 
             Bullet bullet = Instantiate(bullets[index], transform.position, Quaternion.identity).GetComponent<Bullet>();
             bullet.Shoot();
