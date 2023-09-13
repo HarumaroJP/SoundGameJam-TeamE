@@ -6,39 +6,32 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float moveSpace;
+    [SerializeField] private int Player_score;
+
 
     public void Move()
     {
         transform.position += -transform.right * moveSpace;
+
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         ScoreCounter counter = GameObject.Find("Score").GetComponent<ScoreCounter>();
 
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Bullet"))
         {
             //当たったときの処理を書く
             //スコアを加算する
 
-            if (other.gameObject.name == "A")
-            {
-                counter.AddScore(100);
-            }
+            Debug.Log("Bullet");
 
-            if (other.gameObject.name == "B")
-            {
-                counter.AddScore(200);
-            }
+            counter.AddScore(Player_score);
 
-            if (other.gameObject.name == "C")
-            {
-                counter.AddScore(300);
-            }
+            Destroy(other.gameObject);
+
+            Destroy(gameObject);
 
         }
-
-    }
-
-        
+    }    
 }
