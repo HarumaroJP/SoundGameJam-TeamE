@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpace: 1.756
   Player_score: 200
+  Length: 5
 --- !u!61 &2591491262846745074
 BoxCollider2D:
   m_ObjectHideFlags: 0

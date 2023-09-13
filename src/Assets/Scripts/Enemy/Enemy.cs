@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpace;
     [SerializeField] private int Player_score;
 
+    public int Length;
     public event Action OnDestroyed;
 
     public void Move()

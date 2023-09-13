@@ -790,11 +790,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 5196143167479175471, guid: df50198000e981647952eac823aa02b4, type: 3}
-  - {fileID: 9180093507110236298, guid: ae44a8241027e2e48bfe45ca63f1b1a7, type: 3}
-  - {fileID: 4303170219891028335, guid: 24674a63aab13d74185fd0e6cdba33fe, type: 3}
+  - prefab: {fileID: 5196143167479175471, guid: df50198000e981647952eac823aa02b4, type: 3}
+    percent: 50
+  - prefab: {fileID: 9180093507110236298, guid: ae44a8241027e2e48bfe45ca63f1b1a7, type: 3}
+    percent: 30
+  - prefab: {fileID: 4303170219891028335, guid: 24674a63aab13d74185fd0e6cdba33fe, type: 3}
+    percent: 20
   spawnInterval: 1.75
-  spawnPercent: 30
+  beatInterval: 4
+  lineCount: 4
+  coolCounter: 
 --- !u!1 &1142980437
 GameObject:
   m_ObjectHideFlags: 0
