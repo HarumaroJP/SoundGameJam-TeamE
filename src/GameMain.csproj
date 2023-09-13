@@ -49,8 +49,10 @@
      <Compile Include="Assets\Scripts\GameMain\BeatObserver.cs" />
      <Compile Include="Assets\Scripts\GameMain\JudgeType.cs" />
      <Compile Include="Assets\Scripts\GameMain\ScoreCounter.cs" />
+     <Compile Include="Assets\Scripts\GameMain\GameoverController.cs" />
      <Compile Include="Assets\Scripts\GameMain\FlashController.cs" />
      <Compile Include="Assets\Scripts\GameMain\BeatReferee.cs" />
+     <Compile Include="Assets\Scripts\GameMain\GameOverPlayerChanger.cs" />
      <Folder Include="Assets\Scripts\GameMain" />
      <None Include="Assets\Scripts\GameMain\GameMain.asmdef" />
      <Reference Include="UnityEngine">
