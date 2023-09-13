@@ -396,7 +396,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266010508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -3.38, z: 0}
+  m_LocalPosition: {x: -0.02, y: -3.38, z: -5}
   m_LocalScale: {x: 1.2, y: 1.2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -895,8 +895,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpm: 130
-  judgeOffsetBefore: 0.18
-  judgeOffsetAfter: 0.18
   fixOffset: 0
   scale: 1.5
   scaleDuration: 0.05
