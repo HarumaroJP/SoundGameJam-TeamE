@@ -24,9 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Shoot",
+                    "name": "ShootTap",
                     "type": "Button",
                     "id": "fb93d2fd-df75-4c06-8c13-bdd909602ac0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShootPress",
+                    "type": "Button",
+                    "id": "c1a60e86-04cd-4a97-bd51-f3acf197cfee",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -59,11 +68,22 @@
                 {
                     "name": "",
                     "id": "88ea5a4c-d73b-45ae-9591-9efa795a58c2",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "ShootTap",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eabd6fc8-9ce3-49e0-b141-4f28c39350cf",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShootPress",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

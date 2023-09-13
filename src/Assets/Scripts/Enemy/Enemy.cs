@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float moveSpace;
     [SerializeField] private int Player_score;
 
+    public int Length;
+    public event Action OnDestroyed;
+
     public void Move()
     {
         transform.position += -transform.right * moveSpace;
@@ -22,14 +25,12 @@ public class Enemy : MonoBehaviour
             //当たったときの処理を書く
             //スコアを加算する
 
-            Debug.Log("Bullet");
-
             counter.AddScore(Player_score);
 
             Destroy(other.gameObject);
 
             Destroy(gameObject);
-
+            OnDestroyed?.Invoke();
         }
-    }    
+    }
 }

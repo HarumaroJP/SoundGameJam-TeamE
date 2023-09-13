@@ -9,16 +9,15 @@ namespace GameMain
     public class BeatObserver : SingletonMonoBehaviour<BeatObserver>
     {
         [SerializeField] private int bpm;
-        [SerializeField] private double judgeOffsetBefore;
-        [SerializeField] private double judgeOffsetAfter;
+
         [SerializeField] private double fixOffset;
         [SerializeField] private float scale;
         [SerializeField] private float scaleDuration;
 
         private double beatTime;
-        private double currentTime;
+        private double accumulateTime;
+        private double startTime;
 
-        public bool IsJudging { get; private set; }
         public long BeatCount { get; private set; }
         public float ScaleRate { get; private set; } = 1f;
 
@@ -26,35 +25,26 @@ namespace GameMain
 
         private void Awake()
         {
-            beatTime = 60.0 / bpm;
-            Debug.Log(beatTime);
+            startTime = AudioSettings.dspTime;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            currentTime += Time.deltaTime;
+            double currentTime = AudioSettings.dspTime;
 
-            if (!IsJudging && currentTime >= beatTime - judgeOffsetBefore + fixOffset)
-            {
-                Judge().Forget();
-            }
-
-            if (currentTime >= beatTime + fixOffset)
+            if (currentTime >= GetNextTime() - fixOffset)
             {
                 DOTween.To(() => ScaleRate, x => ScaleRate = x, scale, scaleDuration).SetLoops(2, LoopType.Yoyo).Play();
-                currentTime -= beatTime;
+                accumulateTime += 60.0 / bpm;
                 BeatCount++;
                 OnBeat?.Invoke();
             }
         }
 
-        async UniTaskVoid Judge()
+        public double GetNextTime()
         {
-            IsJudging = true;
-
-            await UniTask.Delay(TimeSpan.FromSeconds(judgeOffsetBefore + judgeOffsetAfter));
-
-            IsJudging = false;
+            double bpmTime = 60.0 / bpm;
+            return startTime + accumulateTime + bpmTime + fixOffset;
         }
     }
 }

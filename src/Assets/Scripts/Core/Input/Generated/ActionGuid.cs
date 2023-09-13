@@ -15,6 +15,7 @@ namespace Core.Input
     {
        public readonly Guid MoveUp = new Guid("7c90ba46-f527-40cb-9d90-c5527f941451");
        public readonly Guid MoveDown = new Guid("c9ad8c99-129c-40a5-ab82-d95d1fdc5178");
-       public readonly Guid Shoot = new Guid("fb93d2fd-df75-4c06-8c13-bdd909602ac0");
+       public readonly Guid ShootTap = new Guid("fb93d2fd-df75-4c06-8c13-bdd909602ac0");
+       public readonly Guid ShootPress = new Guid("c1a60e86-04cd-4a97-bd51-f3acf197cfee");
     }
 }

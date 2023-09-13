@@ -56,12 +56,16 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameMain\SpriteAnimation.cs" />
+    <Compile Include="Assets\Scripts\GameMain\BeatScaler.cs" />
     <Compile Include="Assets\Scripts\GameMain\SingletonMonobehaviour.cs" />
     <Compile Include="Assets\Scripts\GameMain\BeatPatternChecker.cs" />
     <Compile Include="Assets\Scripts\GameMain\BeatObserver.cs" />
     <Compile Include="Assets\Scripts\GameMain\JudgeType.cs" />
     <Compile Include="Assets\Scripts\GameMain\ScoreCounter.cs" />
+    <Compile Include="Assets\Scripts\GameMain\FlashController.cs" />
     <Compile Include="Assets\Scripts\GameMain\BeatReferee.cs" />
+    <Compile Include="Assets\Scripts\GameMain\ResultController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Scripts\GameMain\GameMain.asmdef" />
@@ -750,6 +754,10 @@
     <ProjectReference Include="Core.Input.csproj">
       <Project>{3FADF5DA-5BBD-4E7A-BACA-0E006F668F89}</Project>
       <Name>Core.Input</Name>
+    </ProjectReference>
+    <ProjectReference Include="Player.csproj">
+      <Project>{17e921ab-c3b2-7353-5c44-6a97174cc4ef}</Project>
+      <Name>Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

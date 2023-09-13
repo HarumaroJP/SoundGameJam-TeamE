@@ -7,16 +7,29 @@ using Random = UnityEngine.Random;
 
 namespace EnemySystem
 {
+    [Serializable]
+    public class EnemyData
+    {
+        public GameObject prefab;
+        public float percent;
+    }
+
     public class EnemySpawner : MonoBehaviour
     {
-        [SerializeField] private GameObject[] prefabs;
+        [SerializeField] private EnemyData[] prefabs;
         [SerializeField] private float spawnInterval;
-        [SerializeField] [Range(0f, 100f)] private float spawnPercent;
+        [SerializeField] private int beatInterval;
+        [SerializeField] private int lineCount;
+
         private List<Enemy> enemies;
+        [SerializeField] private int[] coolCounter;
+
+        private int currentBeat;
 
         private void Start()
         {
-            enemies = new List<Enemy>();
+            enemies = new List<Enemy>(prefabs.Length);
+            coolCounter = new int[lineCount];
 
             BeatObserver.Instance.OnBeat += () =>
             {
@@ -31,14 +44,71 @@ namespace EnemySystem
 
         private void SpawnEnemy()
         {
-            if (Random.Range(0, 100f) > spawnPercent)
+            SubtractCoolCounter();
+            currentBeat++;
+
+            if (currentBeat < beatInterval)
                 return;
 
-            GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
-            Vector3 spawnPoint = transform.position + new Vector3(0f, spawnInterval * Random.Range(0, prefabs.Length + 1), 0f);
-            GameObject enemyObj = Instantiate(prefab, spawnPoint, Quaternion.identity);
+            (GameObject prefab, int index) enemyData = GetEnemy();
+            Vector3 spawnPoint = transform.position + new Vector3(0f, spawnInterval * GetSpawnIndex(), 0f);
+            spawnPoint += new Vector3(0f, 0f, -5f);
+            GameObject enemyObj = Instantiate(enemyData.prefab, spawnPoint, Quaternion.identity);
+            Enemy enemy = enemyObj.GetComponent<Enemy>();
 
-            enemies.Add(enemyObj.GetComponent<Enemy>());
+            enemies.Add(enemy);
+            coolCounter[enemyData.index] = enemy.Length;
+
+            enemy.OnDestroyed += () => enemies.Remove(enemy);
+            currentBeat = 0;
+        }
+
+        private void SubtractCoolCounter()
+        {
+            for (int i = 0; i < coolCounter.Length; i++)
+            {
+                coolCounter[i] = coolCounter[i] > 0 ? coolCounter[i] - 1 : 0;
+            }
+        }
+
+        private int GetSpawnIndex()
+        {
+            bool found;
+            int resultIndex = 0;
+
+            do
+            {
+                int indexData = Random.Range(0, lineCount);
+
+                found = coolCounter[indexData] == 0;
+
+                if (found)
+                {
+                    resultIndex = indexData;
+                }
+            }
+            while (!found);
+
+            return resultIndex;
+        }
+
+        private (GameObject prefab, int index) GetEnemy()
+        {
+            float percent = Random.Range(0f, 100f);
+            float basePercent = 0f;
+
+            for (int i = 0; i < prefabs.Length; i++)
+            {
+                EnemyData enemy = prefabs[i];
+                if (percent <= basePercent + enemy.percent)
+                {
+                    return (enemy.prefab, i);
+                }
+
+                basePercent += enemy.percent;
+            }
+
+            return (null, -1);
         }
     }
 }
