@@ -1,13 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Player;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer tailRenderer;
+    [SerializeField] private Sprite deathSprite;
+    [SerializeField] private Collider2D bodyCollider;
     [SerializeField] private float moveSpace;
+    [SerializeField] private float deathDuration;
     [SerializeField] private int Player_score;
     [SerializeField] private int type;
 
@@ -40,7 +45,13 @@ public class Enemy : MonoBehaviour
 
             Destroy(other.gameObject);
 
-            Destroy(gameObject);
+            
+            bodyCollider.enabled = false;
+            spriteRenderer.sprite = deathSprite;
+            spriteRenderer.DOFade(0f, deathDuration).Play();
+            tailRenderer.DOFade(0f, deathDuration).Play();
+            Destroy(gameObject, deathDuration);
+
             OnDestroyed?.Invoke();
         }
     }

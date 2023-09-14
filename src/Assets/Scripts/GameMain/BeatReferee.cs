@@ -6,8 +6,8 @@ namespace GameMain
 {
     public class BeatReferee
     {
-        private double judgeOffsetBefore = 0.255;
-        private double judgeOffsetAfter = 0.255;
+        private double judgeOffsetBefore = 0.2;
+        private double judgeOffsetAfter = 0.2;
 
         private InputEvent tapEvent;
         private InputEvent pressEvent;
@@ -16,6 +16,8 @@ namespace GameMain
 
         public event Action<JudgeType, long> OnJudged;
         private BeatObserver beatObserver;
+
+        private double nextTime;
 
         public void Start()
         {
@@ -26,6 +28,18 @@ namespace GameMain
             tapEvent.Started += _ => OnTap();
             pressEvent.Started += _ => OnPress();
             pressEvent.Canceled += _ => OnRelease();
+
+            nextTime = AudioSettings.dspTime;
+        }
+
+        public void Update()
+        {
+            double dspTime = AudioSettings.dspTime;
+
+            if (dspTime >= nextTime + beatObserver.BpmUnit * 0.5)
+            {
+                nextTime = beatObserver.GetNextTime();
+            }
         }
 
         private void OnTap()
@@ -76,7 +90,6 @@ namespace GameMain
         private bool GetJudgement()
         {
             double dspTime = AudioSettings.dspTime;
-            double nextTime = beatObserver.GetNextTime();
             Debug.Log(nextTime - dspTime);
             return dspTime >= nextTime - judgeOffsetBefore && dspTime <= nextTime + judgeOffsetAfter;
         }

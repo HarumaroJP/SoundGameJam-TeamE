@@ -1024,7 +1024,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845dfb065d2ae854c87932b425d9dd14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 130
+  audioSource: {fileID: 1142980442}
+  startBpm: 80
+  originalBpm: 130
+  bpm: 0
+  maxBpm: 260
+  increaseBpm: 20
+  changeBeatCount: 25
   fixOffset: 0
   scale: 1.5
   scaleDuration: 0.05

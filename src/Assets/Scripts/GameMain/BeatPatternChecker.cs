@@ -41,6 +41,11 @@ namespace GameMain
             };
         }
 
+        private void Update()
+        {
+            beatReferee.Update();
+        }
+
         private async UniTaskVoid PlayMissEffect()
         {
             playerRenderer.sprite = missSprite;

@@ -244,8 +244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3006e19dad8d6294a8e6f33f1eb35ca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 5049720691215960777}
+  tailRenderer: {fileID: 2254025070479314473}
+  deathSprite: {fileID: 21300000, guid: 4ee91fba6e7fc18488974eed4ce966d3, type: 3}
+  bodyCollider: {fileID: 1626663815629789277}
   moveSpace: 1.756
+  deathDuration: 0.5
   Player_score: 100
   type: 1
   Length: 2
