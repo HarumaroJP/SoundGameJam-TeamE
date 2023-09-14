@@ -22,10 +22,10 @@ public class GameoverController : MonoBehaviour
         if (IsGameOver)
             return;
 
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.CompareTag("Enemy"))
         {
             IsGameOver = true;
-            Result.result(scoreCounter.score_sum);
+            Result.Result(scoreCounter.score_sum);
             gameOverPlayerChanger.GameOver();
         }
     }

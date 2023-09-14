@@ -9,7 +9,7 @@ public class ResultController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ScoreText;
     [SerializeField] private GameObject ResultPanel;
 
-    public void result(int Score)
+    public void Result(int Score)
     {
         ScoreText.text = "Score: " + Score.ToString("d5");
         ResultPanel.SetActive(true);
